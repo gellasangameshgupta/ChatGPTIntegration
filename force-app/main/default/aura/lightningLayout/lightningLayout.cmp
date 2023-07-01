@@ -1,0 +1,69 @@
+<aura:component >
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-large" size="12">
+               <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">Fruits Names</p>
+                            </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem padding="around-small" size="4">
+                       <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">Apple</p>
+                            </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">
+                       <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">Watermelon</p>
+                            </div>                  
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">
+                      <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">PineApple</p>
+                            </div>                   
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">
+                      <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">Guava</p>
+                            </div>                  
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">
+                      <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">SweetLime</p>
+                            </div>                  
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">
+                      <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">Papaya</p>
+                            </div>                   
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">
+                      <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">Grapes</p>
+                            </div>                   
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">
+                      <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">Orange</p>
+                            </div>                   
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="4">
+                      <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">Lemon</p>
+                            </div>                   
+                    </lightning:layoutItem>
+
+                    
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <lightning:layoutItem padding="around-large" size="12">
+               <div class="slds-box slds-box_x-small">
+                            <p class="slds-align_absolute-center">Enough Fruits for Today</p>
+                            </div>
+            </lightning:layoutItem>
+                                                                     
+                                       
+    </div>
+</aura:component>

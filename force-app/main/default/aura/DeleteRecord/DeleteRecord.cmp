@@ -1,0 +1,43 @@
+<aura:component controller="getRecords" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="data" type="sObject[]" />
+    <aura:attribute name="ObjectName" type="String" />
+    <aura:attribute name="ContactList" type="Contact[]" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="RecName">Name</div>
+                    </th>
+                    <th class="slds-text-title_caps" scope="col">
+                        <div class="slds-truncate" title="del">Delete</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.data}" var="item">
+                    <tr class="slds-hint-parent">
+
+                        <td data-label="Record Name">
+                            <div class="slds-truncate" title="{!item.Name}">{!item.Name}</div>
+                        </td>
+                        <td data-label="Record Id">
+                            <div class="slds-truncate" title="{!item.Id}">{!item.Id}</div>
+                        </td>
+                        <td onclick="{!c.deleteRec}" id="{!item.Id}">
+                            <lightning:button>
+                            <lightning:icon iconName="utility:delete" size="small"/>
+                        </lightning:button>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</aura:component>

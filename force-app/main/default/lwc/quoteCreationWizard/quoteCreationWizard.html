@@ -1,0 +1,219 @@
+<template>
+	<lightning-card title="Quote Creation">
+		<div class="slds-p-left_small slds-p-right_small">
+		<lightning-progress-indicator current-step={currentStep} type="path" variant="base">
+			<lightning-progress-step label="Add Contact And Account" value="1" onclick={handleOnStepClick}></lightning-progress-step>
+			<lightning-progress-step label="Add Opportunity" value="2" onclick={handleOnStepClick}></lightning-progress-step>
+			<lightning-progress-step label="Add Quote" value="3" onclick={handleOnStepClick}></lightning-progress-step>
+			<!-- <template if:true={isSetupEnabled}> -->
+			<!-- <lightning-progress-step label="Add Order" value="4" onclick={handleOnStepClick}></lightning-progress-step> -->
+			<!-- </template> -->
+		</lightning-progress-indicator>
+		</div>
+
+		<!-- <template if:true={isSetupEnabled}>
+            <strong>Permission Granted</strong>
+		</template> -->
+		<template if:true={isStepOne}>
+			<div class="slds-p-left_small">
+			<template if:true={contact}>
+				<div>
+					<lightning-icon icon-name="standard:contact" size="small"></lightning-icon>Contact Details
+				</div> 
+					<p><b>First Name:</b> {data.FirstName}</p>
+					<p><b>Last Name:</b> {data.LastName}</p>
+					<p><b>Phone:</b> {data.Phone}</p>
+					<p><b>Email:</b> {data.Email}</p>
+				<h3>                   
+					<lightning-icon icon-name="standard:account" size="small"></lightning-icon>Account Details
+				</h3>
+					<p><b>Account Name:</b> {data.Account.Name}</p>
+					<p><b>Account Number:</b>{data.Account.AccountNumber}</p>
+					<p><b>Industry:</b>{data.Account.Industry}</p>
+					<p><b>Owner:</b>{data.Account.Owner.Name}</p> 
+					
+			 </template>
+			 <template if:false={contact}>
+			<div>
+				<h3>
+                <lightning-icon icon-name="standard:contact" size="small"></lightning-icon> Select Contact Information
+            </h3>
+				<lightning-radio-group name="radioGroup" label="Choose Contact" options={options} value={value} onchange={OnEevntChange} type="radio"></lightning-radio-group>
+				<template if:true={existingConatct}>
+					<c-custom-lookup-lwc icon-name="standard:contact" s-object-api-name="contact" label="Contact" onlookupupdate={lookupRecord} placeholder="Search Contact here..."></c-custom-lookup-lwc>
+					<template if:true={areDetailsVisible}>
+						<div>
+							<h3>
+                                    <lightning-icon icon-name="standard:account" size="small"></lightning-icon> General Account Information
+                                    </h3>
+							<p><b>Account Name:</b> {data.Account.Name}</p>
+							<p><b>Account Number:</b>{data.Account.AccountNumber}</p>
+							<p><b>Industry:</b>{data.Account.Industry}</p>
+							<p><b>Owner:</b>{data.Account.Owner.Name}</p>
+						</div>
+					</template>
+				</template>
+				<template if:true={newContact}>
+					<div slot="title">
+						<h3>
+                                <lightning-icon icon-name="standard:contact" size="small"></lightning-icon> General Contact Information
+                                </h3> </div>
+					<div class="slds-grid slds-wrap">
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element">
+								<lightning-input label="First Name" value={contactRecord.FirstName} onchange={handleFirstNameChange}></lightning-input>
+							</div>
+						</div>
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element">
+								<lightning-input label="Last Name" value={contactRecord.LastName} onchange={handleLastNameChange} required></lightning-input>
+							</div>
+						</div>
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element">
+								<lightning-input type="number" label="Phone" value={contactRecord.Phone} onchange={handlePhoneChange}></lightning-input>
+							</div>
+						</div>
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element">
+								<lightning-input label="Email" value={contactRecord.Email} onchange={handleEmailChange}></lightning-input>
+							</div>
+						</div>
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element slds-p-top_large ">
+								<h1> <b>Address Information</b></h1> </div>
+						</div>
+					</div>
+					<div> </div>
+					<div class="slds-grid slds-wrap">
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element">
+								<lightning-input label="Street" value={contactRecord.MailingStreet} onchange={handleMailingStreetChange}></lightning-input>
+							</div>
+						</div>
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element">
+								<lightning-input label="City" value={contactRecord.MailingCity} onchange={handleMailingCityChange}></lightning-input>
+							</div>
+						</div>
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element">
+								<lightning-input label="State" value={contactRecord.MailingState} onchange={handleMailingStateChange}></lightning-input>
+							</div>
+						</div>
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element">
+								<lightning-input label="Country" value={contactRecord.MailingCountry} onchange={handleMailingCountryChange}></lightning-input>
+							</div>
+						</div>
+						<div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+							<div class="slds-form-element">
+								<lightning-input type="number" label="Postal Code" value={contactRecord.MailingPostalCode} onchange={handleMailingPostalCodeChange}></lightning-input>
+							</div>
+						</div>
+					</div>
+					<lightning-radio-group name="radioGroup" label="Choose Account" options={chooseContact} value={value} onchange={OnEevntChange2} type="radio"></lightning-radio-group>
+					<template if:true={existingAccount}>
+						<c-custom-lookup-lwc icon-name="standard:account" s-object-api-name="account" label="Account" onlookupupdate={lookupRecord} placeholder="Search Account here..."></c-custom-lookup-lwc>
+					</template>
+					<template if:true={newAccount}>
+						<c-create-account></c-create-account>
+					</template>
+				</template>
+			</div>
+			</template>
+			<lightning-button label="Next" variant="brand" onclick={handleNext} class="slds-m-left_x-small"></lightning-button>
+			</div>
+		</template>
+		<template if:true={isStepTwo}>
+			<!-- <c-opportunity-data-table account-id={accountId} ></c-opportunity-data-table> -->
+			<template if:true={showOpportunity}>
+				<div>
+					<lightning-datatable key-field="id" data={opportunitydata} columns={columns}> </lightning-datatable>
+				</div>
+			</template>
+			<template if:true={newOpportunity}>
+				<p><b>No opportunities under this account! Please create a new opportunity.</b></p>
+				<c-create-opportunity></c-create-opportunity>
+			</template>
+			<lightning-button label="Back" variant="brand" onclick={handleBack} class="slds-m-left_x-small"></lightning-button>
+			<lightning-button label="Next" variant="brand" onclick={handleNext} class="slds-m-left_x-small"></lightning-button>
+		</template>
+		<!-- Step three -->
+		<template if:true={isStepThree}>
+			<div>
+				<h3>
+                <lightning-icon icon-name="standard:contact" size="small"></lightning-icon>Contact Details
+            </h3> </div>
+			<template if:true={contact}>
+				<p><b>First Name:</b> {data.FirstName}</p>
+				<p><b>Last Name:</b> {data.LastName}</p>
+				<p><b>Phone:</b> {data.Phone}</p>
+				<p><b>Email:</b> {data.Email}</p>
+				<h3>                   
+                    <lightning-icon icon-name="standard:account" size="small"></lightning-icon>Account Details
+                 </h3>
+				<p><b>Account Name:</b> {data.Account.Name}</p>
+				<p><b>Account Number:</b>{data.Account.AccountNumber}</p>
+				<p><b>Industry:</b>{data.Account.Industry}</p>
+				<p><b>Owner:</b>{data.Account.Owner.Name}</p>
+			</template>
+			<template if:true={existingConatct}>
+				<p><b>First Name:</b> {data.FirstName}</p>
+				<p><b>Last Name:</b> {data.LastName}</p>
+				<p><b>Phone:</b> {data.Phone}</p>
+				<p><b>Email:</b> {data.Email}</p>
+				<h3>                   
+                    <lightning-icon icon-name="standard:account" size="small"></lightning-icon>Account Details
+                 </h3>
+				<p><b>Account Name:</b> {data.Account.Name}</p>
+				<p><b>Account Number:</b>{data.Account.AccountNumber}</p>
+				<p><b>Industry:</b>{data.Account.Industry}</p>
+				<p><b>Owner:</b>{data.Account.Owner.Name}</p>
+			</template>
+			<template if:true={newContact}>
+				<p><b>First Name:</b> {contactRecord.FirstName}</p>
+				<p><b>Last Name:</b> {contactRecord.LastName}</p>
+				<p><b>Phone:</b> {contactRecord.Phone}</p>
+				<p><b>Email:</b> {contactRecord.Email}</p>
+				<template if:true={existingAccount}>
+					<h3>                   
+                   <lightning-icon icon-name="standard:account" size="small"></lightning-icon>Account Details
+                </h3>
+					<p><b>Account Name:</b> {data.Name}</p>
+					<p><b>Account Number:</b>{data.AccountNumber}</p>
+					<p><b>Industry:</b>{data.Industry}</p>
+					<p><b>Owner:</b>{data.Owner.Name}</p>
+				</template>
+				<template if:true={newAccount}>
+					<h3>                   
+                <lightning-icon icon-name="standard:account" size="small"></lightning-icon>Account Details
+              </h3>
+					<p><b>Account Name:</b> {accountRecord.Name}</p>
+					<p><b>Account Number:</b>{accountRecord.AccountNumber}</p>
+					<p><b>Industry:</b>{accountRecord.Industry}</p>
+					<p><b>Owner:</b>{accountRecord.Owner}</p>
+				</template>
+			</template>
+			<template if:true={opportunity}>
+				<h3>
+                <lightning-icon icon-name="standard:opportunity" size="small"></lightning-icon>Opportunity Details
+            </h3>
+				<p><b>Opportunity Name:</b> {opportunityRecord.Name}</p>
+				<p><b>Close Date Number:</b>{opportunityRecord.CloseDate}</p>
+				<p><b>Stage Name:</b>{opportunityRecord.StageName}</p>
+			</template>
+			<lightning-button label="Back" variant="brand" onclick={handleBack} class="slds-m-left_x-small"></lightning-button>
+			<!-- <template> -->
+			<lightning-button label="Create Quotes" variant="brand" onclick={handleCreateQuote} class="slds-m-left_x-small"></lightning-button>
+			<!-- </template> -->
+			<!-- <template if:true={isSetupEnabled}>
+				<lightning-button label="Next" variant="brand" onclick={handleNext} class="slds-m-left_x-small"></lightning-button>
+			</template> -->
+		</template>
+		<!-- step four -->
+		<!-- <template if:true={isStepFour}>
+			<c-custom-lookup-lwc icon-name="standard:contract" s-object-api-name="contract" label="Contract" onlookupupdate={lookupRecord} placeholder="Search Contract here..."></c-custom-lookup-lwc>
+		</template> -->
+		<!-- <lightning-button label="Next" variant="brand" onclick={handleNext}></lightning-button> --></lightning-card>
+</template>

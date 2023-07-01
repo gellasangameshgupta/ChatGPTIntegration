@@ -1,0 +1,67 @@
+<template>
+    <lightning-card>
+    <div slot="title">
+    <h3>
+    <lightning-icon icon-name="standard:contact" size="small"></lightning-icon> General Contact Information
+    </h3>
+    </div>
+    <div class="slds-grid slds-wrap">
+    <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+    <div class="slds-form-element">
+    <lightning-input label="First Name" value={contactRecord.firstName} onchange={handleFirstNameChange}></lightning-input>
+    </div>
+    </div>
+    <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+    <div class="slds-form-element">
+    <lightning-input label="Last Name" value={contactRecord.lastName} onchange={handleLastNameChange} required></lightning-input>
+    </div>
+    </div>
+    <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+    <div class="slds-form-element">
+    <lightning-input type="number" label="Phone" value={contactRecord.phone} onchange={handlePhoneChange}></lightning-input>
+    </div>
+    </div>
+    <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+    <div class="slds-form-element">
+    <lightning-input label="Email" value={contactRecord.emailId} onchange={handleEmailChange} ></lightning-input>
+    </div>
+    </div>
+    <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+    <div class="slds-form-element slds-p-top_large ">
+    <h1> <b>Address Information</b></h1>
+    </div>
+    </div>
+    </div>
+    <div >
+        
+        </div>
+        <div class="slds-grid slds-wrap">
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+        <div class="slds-form-element">
+        <lightning-input label="Street" value={contactRecord.MailingStreet} onchange={handleMailingStreetChange}></lightning-input>
+        </div>
+        </div>
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+        <div class="slds-form-element">
+        <lightning-input label="City" value={contactRecord.MailingCity} onchange={handleMailingCityChange}></lightning-input>
+        </div>
+        </div>
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+        <div class="slds-form-element">
+        <lightning-input label="State" value={contactRecord.MailingState} onchange={handleMailingStateChange}></lightning-input>
+        </div>
+        </div>
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+        <div class="slds-form-element">
+        <lightning-input label="Country" value={contactRecord.MailingCountry} onchange={handleMailingCountryChange} ></lightning-input>
+        </div>
+        </div>
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+            <lightning-input type = "number" label="Postal Code" value={contactRecord.MailingPostalCode} onchange={handleMailingPostalCodeChange} ></lightning-input>
+            </div>
+            </div>
+       
+        </div>
+    </lightning-card>
+    </template>

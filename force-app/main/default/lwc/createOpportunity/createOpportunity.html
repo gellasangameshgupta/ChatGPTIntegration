@@ -1,0 +1,33 @@
+<template>
+    <div slot="title">
+        <h3>
+        <lightning-icon icon-name="standard:opportunity" size="small"></lightning-icon> General Opportunity Information
+        </h3>
+        </div>
+        <div class="slds-grid slds-wrap">
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+        <div class="slds-form-element">
+        <lightning-input label="Name" value={opportunityRecord.Name} onchange={handleOpportunityNameChange} required></lightning-input>
+        </div>
+        </div>
+       
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+            <lightning-combobox
+                name="Stage"
+                label="Stage"
+                value={opportunityRecord.StageName}
+                placeholder="--Select--"
+                options={stagePicklist.values}
+                onchange={handleOpportunityStageChange}></lightning-combobox>
+            </div>
+            </div>
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                    <lightning-input type = "datetime" label="Close Date" value={opportunityRecord.CloseDate} onchange={handleOpportunityCloseDateChange} ></lightning-input>
+                    </div>
+                </div>
+       
+       </div>  
+    
+</template>

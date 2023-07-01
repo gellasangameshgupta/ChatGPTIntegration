@@ -1,0 +1,51 @@
+<template>
+    <lightning-card title="ToDo List" icon-name="custom:custom64">
+
+        <lightning-layout >
+            <lightning-layout-item >
+                <lightning-input
+                    type="text"
+                    placeholder="Create a new task"
+                    variant="label-hidden"
+                    value={newTask}
+                    label="New Task"
+                    onchange={updateNewTask}
+                    required
+                >
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-button
+                    variant="brand"
+                    label="+"
+                    onclick={addTaskToList}
+                >
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+           
+        
+     
+        <p class="slds-text-heading--medium">TODO Task List</p>
+        <ul class="slds-has-dividers_around-space">
+            <template for:each={todoTasks} for:item="todoTask">
+                <li class="slds-item" key={todoTask.id}>
+                    <lightning-layout>
+                       
+                        <lightning-layout-item>  {todoTask.name}  </lightning-layout-item>
+                        <lightning-layout-item class="slds-m-left_small">
+                            <lightning-input type="checkbox"></lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </li>
+            </template>
+         </ul>
+
+         <p class="slds-text-heading--medium">Done Task List</p>
+        
+     
+
+        
+    </lightning-card>
+    
+</template>

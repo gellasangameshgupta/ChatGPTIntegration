@@ -1,0 +1,22 @@
+<template>
+  <lightning-card title="Calculator" icon-name="custom:custom11"> 
+     <div class="sldx-box slds-theme_shade">  
+        <lightning-input type="number" label="Number 1" onchange={handleNumberOne} value={Num1}></lightning-input>  
+        <lightning-input type="number" label="Number 2" onchange={handleNumberTwo} value={Num2}></lightning-input>  
+     </div>  
+     
+       <div class="slds-box slds-theme_shade">  
+          <lightning-button label="Add" onclick={add}> </lightning-button>    
+          <lightning-button label="Subtract" onclick={sub}> </lightning-button> 
+          <lightning-button label="Multiply" onclick={mul}> </lightning-button> 
+          <lightning-button label="Divide" onclick={div}> </lightning-button>  
+       </div>  
+
+       <div class="slds-box slds-theme_shade">  
+          <p>Output : </p>  
+          <template for:each={output} for:item="item">
+             {item}
+          </template>  
+       </div>  
+ </lightning-card>  
+</template>

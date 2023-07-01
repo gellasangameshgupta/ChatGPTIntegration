@@ -1,0 +1,17 @@
+<!--c:ceHandler-->
+<aura:component >
+    
+    <aura:attribute name="messageFromEvent" type="String" default=" "/>
+    <aura:attribute name="numEvents" type="Integer" default="0"/>
+    
+    <!--Note that name="cmpEvent" in aura:registerEvent in lcTest1.cmp -->
+    <aura:handler name="cmpEvent" event="c:Test1" action="{!c.handleComponentEvent}"/>
+    
+    <!--handler contains the notifier component -->
+    <c:lcTest1/>
+    
+    <p>{!v.messageFromEvent}</p>
+    <p>Number of events: {!v.numEvents}</p>
+                                                  
+	
+</aura:component>

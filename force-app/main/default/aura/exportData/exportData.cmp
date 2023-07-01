@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+
+<lightning:button iconName ="utility:download" onclick="{!c.downloadCSV}" label = "Export Data"/>
+
+</aura:component>

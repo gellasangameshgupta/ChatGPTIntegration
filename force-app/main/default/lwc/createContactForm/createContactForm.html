@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="ContactRecord" icon-name="custom:custom15"> 
+       <lightning-record-form 
+           object-api-name={contactObject} 
+           fields={myFields} mode="edit" 
+           onsuccess={handleSuccess} 
+           onsubmit={handleSubmit}>
+       </lightning-record-form>
+    </lightning-card>
+    
+</template>

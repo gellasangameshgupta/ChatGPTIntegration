@@ -1,0 +1,15 @@
+<template>
+   
+    <lightning-card title="Prechat Form">
+
+        <template if:true={chats}>
+            <lightning-datatable data={chats} columns={columns} key-field="Id">
+            </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+
+    </lightning-card>
+
+</template>

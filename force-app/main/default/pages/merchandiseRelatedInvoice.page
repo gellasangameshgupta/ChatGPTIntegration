@@ -1,0 +1,31 @@
+<apex:page standardController="Merchandise__c">
+ 
+    <table border="0" >
+ 
+        <tr>
+ 
+            <th>Invoice Number</th><th>Priority</th>
+ 
+            <th> Value</th><th>Status</th>
+ 
+        </tr>
+ 
+        <apex:repeat var="cases" value="{!Merchandise__c.invoices__r}">
+ 
+        <tr>
+ 
+            <td>{!cases.Name}</td>
+ 
+            <td>{!cases.Priority__c}</td>
+ 
+            <td>{!cases.Value__c}</td>
+ 
+            <td>{!cases.Status__c}</td>
+ 
+        </tr>
+ 
+        </apex:repeat> 
+ 
+    </table>
+ 
+</apex:page>

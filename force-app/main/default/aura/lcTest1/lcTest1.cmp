@@ -1,0 +1,13 @@
+<!--c:lcTest1-->
+<aura:component >
+    <aura:handler name = "init" value="{!this}" action="{! c.init}"/>
+    <aura:registerEvent name="cmpEvent" type="c:Test1"/>
+    
+    <h1>Connection Using Component Event</h1>
+    <p><lightning:button 
+                         label="click here to fire me!"
+                         onclick="{!c.fireComponentEvent}"/>
+    </p>
+    
+	
+</aura:component>

@@ -1,0 +1,13 @@
+<template>
+
+    <lightning-card title="Hub Status" icon-name="custom:custom24">
+
+    <lightning-progress-ring value={inactiveBike.data}  variant="expired" size="large"> </lightning-progress-ring><h3>Inactive Bike</h3>
+       
+    <lightning-progress-ring value={bookedBike.data} size="large"> </lightning-progress-ring><h3>Booked Bike</h3>
+
+    <lightning-progress-ring value={serviceBike.data} variant="warning" size="large"></lightning-progress-ring><h3>Due To Service</h3>
+
+    </lightning-card>
+    
+</template>

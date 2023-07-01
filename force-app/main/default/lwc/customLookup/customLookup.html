@@ -1,0 +1,12 @@
+<template>
+    <lightning-input type="search" onchange={handleKeyChange} class="slds-m-bottom_small" label="Search" value={searchKey}></lightning-input>
+    <template if:true={data}>
+        <template for:each={data} for:item="Contact">
+            <p key={Contact.Id}>{Contact.firstname}</p>
+        </template>
+    </template>
+    <!--<template if:true={Contact.error}>
+        {Contact.error}
+    </template>-->
+        
+  </template>

@@ -1,0 +1,19 @@
+<apex:page controller="accountContactListVf" standardStylesheets="true" >
+    <apex:pageBlock >
+        <apex:repeat value="{!displayAccounts}" var="acc">
+            <dl>
+                <dt>Account Name:</dt>
+                <dd><apex:outputText value="{!acc.Name}"/></dd> 
+            </dl>
+            
+           <apex:pageBlock title="Contacts">
+      <apex:pageBlockTable value="{!acc.Contacts}" var="contact">
+         <apex:column value="{!contact.Name}"/>
+         <apex:column value="{!contact.Email}"/>
+         <apex:column value="{!contact.Phone}"/>
+      </apex:pageBlockTable>
+   </apex:pageBlock>
+        </apex:repeat>
+        
+    </apex:pageBlock>
+</apex:page>

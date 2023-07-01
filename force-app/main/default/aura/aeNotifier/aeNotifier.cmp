@@ -1,0 +1,11 @@
+<!--c:aeNotifier-->
+<aura:component>
+    <aura:registerEvent name="appEvent" type="c:aeEvent"/>
+    
+    <h1>Connection Using Application Event</h1>
+    <p> <lightning:button
+                          label="Click on me to fire Application Event"
+                          onclick="{!c.fireApplicationEvent}"/>
+    </p>
+	
+</aura:component>

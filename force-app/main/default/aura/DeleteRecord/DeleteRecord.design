@@ -1,0 +1,4 @@
+<design:component >
+    <design:attribute name="ObjectName" label="Object Name" description="Enter Object Name" />
+
+</design:component>

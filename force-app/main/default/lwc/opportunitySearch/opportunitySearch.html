@@ -1,0 +1,28 @@
+<template>
+
+    <lightning-card title="ApexImperativeMethod" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <lightning-input 
+               type="search"
+               onchange={handleKeyChange}
+               class="slds-m-bottom_small"
+               label="Search"
+               value={searchKey}>
+            </lightning-input>
+            <p class="slds-m-bottom_small">
+                <lightning-button label="Load Opportunity" onclick={handleSearch}></lightning-button>
+            </p>
+            <template if:true={oppo}>
+                <template for:each={oppo} for:item="opportunity">
+                    <p key={opportunity.Id}>{opportunity.Amount}
+                        {opportunity.Name}
+                    </p>
+                </template>
+            </template>
+            <template if:true={error}>
+              
+            </template>
+        </div>
+    </lightning-card>
+    
+</template>

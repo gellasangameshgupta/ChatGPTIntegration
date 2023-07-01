@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Loan Search Engine" icon-name="custom:custom64">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" onchange={handleKeyChange} class="slds-m-bottom_small" label="Search" value={searchKey}></lightning-input>
+            <template if:true={loans__c.data}>
+                <template for:each={loans__c.data} for:item="loan__c">
+                    <p key={loan__c.Id}>{loan__c.Name}</p>
+                </template>
+            </template>
+            <template if:true={loans__c.error}>
+                {loans__c.error}
+            </template>
+        </div>
+    </lightning-card>
+</template>

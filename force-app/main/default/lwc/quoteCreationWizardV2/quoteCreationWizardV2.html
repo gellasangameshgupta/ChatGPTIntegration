@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Quote Creation Wizard" icon-name="standard:account">
+        <template if:true={contact}>
+            <h3>
+                <lightning-icon icon-name="standard:contact" size="small"></lightning-icon>Contact Details
+            </h3> 
+			    <p><b>First Name:</b> {data.FirstName}</p>
+				<p><b>Last Name:</b> {data.LastName}</p>
+				<p><b>Phone:</b> {data.Phone}</p>
+				<p><b>Email:</b> {data.Email}</p>
+            <h3>                   
+                <lightning-icon icon-name="standard:account" size="small"></lightning-icon>Account Details
+            </h3>
+				<p><b>Account Name:</b> {data.Account.Name}</p>
+				<p><b>Account Number:</b>{data.Account.AccountNumber}</p>
+				<p><b>Industry:</b>{data.Account.Industry}</p>
+				<p><b>Owner:</b>{data.Account.Owner.Name}</p> 
+                
+         </template>   
+    </lightning-card>
+    
+</template>

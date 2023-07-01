@@ -1,0 +1,47 @@
+<!-- Name: UploadImages
+     Decription: Upload images in files object and show them on richtex field on record.
+     Created Date: 17/03/2019
+     LastModified Date: 17/03/2019
+     Created By: Arun Kumar
+-->
+<apex:page controller="uploadImageCntrl" sidebar="false">
+  <html>
+      <head>
+          <apex:slds />
+          <style>
+              .slds-scope .slds-page-header {
+                padding: 1rem 1rem;
+                /* border-bottom: 1px solid rgb(221, 219, 218); */
+                /* border-radius: .25rem; */
+                background: rgb(243, 242, 242);
+                background-clip: padding-box;
+                /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10); */
+                border: 1px solid rgb(221, 219, 218);
+            }
+            #bodyPart{
+                border: 1px solid rgb(221, 219, 218);
+                padding:1rem 1rem;
+            }
+          </style>
+      </head>
+      <body>
+          <apex:form >
+          <div class="slds">
+              <div class="slds-grid">
+                  <div class="slds-col slds-size--12-of-12">
+                      <div class="slds-page-header">
+                          Upload Image
+                      </div>
+                  </div>
+              </div>
+              <div id="bodyPart">
+                  <apex:inputFile value="{!imageFile}" styleClass="" />
+                  <apex:actionRegion >
+                        <apex:commandButton value="Upload" action="{!uploadImg}" Styleclass="slds-button slds-button--brand" />
+                  </apex:actionRegion>
+              </div>
+          </div>
+          </apex:form>
+      </body>
+  </html>
+</apex:page>

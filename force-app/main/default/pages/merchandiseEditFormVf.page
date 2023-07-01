@@ -1,0 +1,22 @@
+<apex:page standardController="Merchandise__c">
+    <apex:form >
+        <apex:pageBlock mode="inlineEdit">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!edit}" id="editButton" value="Edit"/>
+                <apex:commandButton action="{!save}" id="saveButton" value="Save"/>
+                <apex:commandButton onclick="resetInlineEdit()" id="cancelButton" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Merchandise__c.name}">
+                    <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+                </apex:outputField>
+                <apex:outputField value="{!Merchandise__c.Price__c}"/>
+                <apex:outputField value="{!Merchandise__c.Order_Complete__c}"/>
+                <apex:outputField value="{!Merchandise__c.Quantity__c}"/>
+                <apex:outputField value="{!Merchandise__c.No_of_Line_Items__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

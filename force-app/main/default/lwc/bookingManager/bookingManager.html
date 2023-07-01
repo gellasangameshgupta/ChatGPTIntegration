@@ -1,0 +1,12 @@
+<template>
+
+    <lightning-card title="Booking Manager" icon-name="custom:custom15"> 
+        <lightning-record-form 
+            object-api-name={bookingObject} 
+            fields={myFields} mode="edit" 
+            onsuccess={handleSuccess} 
+            onsubmit={handleSubmit}>
+        </lightning-record-form>
+     </lightning-card>
+    
+</template>

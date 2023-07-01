@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="CricketerList" icon-name="custom:custom14">
+        <ul class="slds-m-around_medium">
+            <template for:each={cricketers} for:item="cricketer">
+                <li key={cricketer.Id}>
+                    <span class="slds-badge">
+                    {cricketer.Name}, {cricketer.Team}
+                    </span>
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+    
+</template>

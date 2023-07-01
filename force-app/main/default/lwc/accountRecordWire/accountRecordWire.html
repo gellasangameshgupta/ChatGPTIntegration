@@ -1,0 +1,25 @@
+<template>
+
+    <lightning-card title= "Account Record Using Wire Service" icon-name = "custom:custom55">
+        <div class="slds-m-around_medium">
+           
+            <template if:true={record}>
+             
+                   <p key={record.Id}>{accountName}</p>
+                   <p key={record.Id}>{phone}</p>
+                   <p key={record.Id}>{type}</p>
+                   <p key={record.Id}>{industry}</p>
+                   <p key={record.Id}>{billingStreet}</p>
+                   <p key={record.Id}>{billingCity}</p>
+   
+   <p key={record.Id}>{billingCountry}</p>
+    <p key={record.Id}>{annualRevenue}</p>
+              
+            </template>
+            <template if:true={error}>
+               
+            </template>
+        </div>
+       </lightning-card>
+    
+</template>

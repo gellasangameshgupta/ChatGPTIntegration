@@ -1,0 +1,67 @@
+<aura:component controller="bookingBikeDetailsController" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+     
+    <aura:attribute name="bikeList"
+    type="Bike__c"/> 
+
+<aura:attribute name="recordId" type="String" />
+
+<aura:handler name="init"
+  value="{!this}"
+  action="{!c.doInit}"/>
+
+<div class="demo-only slds-grid" style="height: 150px; width: 100px; padding: 2rem;">
+<div>
+    <div >
+
+<lightning:accordion>
+    <aura:iteration items="{!v.bikeList}" 
+                    var="bike">
+                                
+<lightning:accordionSection name="{!bike.Name}" 
+                                        label="{!bike.Name}">   
+       
+        
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped slds-max-medium-table--stacked-horizontal"
+               role="grid">
+            <thead>
+                
+            
+            </thead>
+           
+            <tbody>
+                <tr class="slds-hint-parent">
+                   
+                    <lightning:accordion>
+                    <aura:iteration items="{!bike.Bookings__r}" 
+                                    var="booking">
+                        <lightning:accordionSection name="{!booking.Name}" 
+                                                    label="{!booking.Name}">
+                            
+                            <aura:set attribute="body">
+                                
+                                <p>Distance : {!booking.Distance_KM_s__c}</p>
+                                <p>Booking Time : {!booking.Booking_Time__c}</p>
+                                <p>Customer Name : {!booking.Customer__r.Name}</p>
+                                <p>Customer status:{!booking.Customer__r.Status__c}</p>
+                                
+                            </aura:set>
+                        </lightning:accordionSection>
+                    </aura:iteration>
+                
+                    </lightning:accordion>
+                </tr>
+                
+        </tbody>
+    </table>
+
+                
+            </lightning:accordionSection>
+            
+        </aura:iteration>
+    </lightning:accordion>
+
+</div>
+</div>
+</div>
+
+</aura:component>

@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title="Hub Search" icon-name="custom:custom42">
+        <div class="slds-m-around_medium">
+            <lightning-input 
+               type="search"
+               onchange={handleKeyChange}
+               class="slds-m-bottom_small"
+               label="Search Hub Name"
+               value={searchKey}>
+            </lightning-input>
+            <p class="slds-m-bottom_small">
+                <lightning-button label="Find" onclick={handleSearch}></lightning-button>
+            </p>
+            <template if:true={hubs}> 
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-cell-wrap" title="Name">Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-cell-wrap" title="Phone">Vehicle No.</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-cell-wrap" title="select">Km Covered</div>
+                            </th>
+                        </tr>
+                    </thead>      
+                    <tbody>
+                        <template for:each={hubs} for:item="hub">  
+                            
+                               
+                            <template for:each={hub.Bikes__r} for:item="bike" for:index="indexChild">   
+                                    <tr class="slds-hint-parent" key={bike.index}>
+                                        <td data-label=" Bike Name" scope="col">
+                                            <div class="slds-cell-wrap">{bike.Name}</div>
+                                        </td>
+                                        <td data-label="VehicleNo" scope="col">
+                                        <div class="slds-cell-wrap">{bike.Vehicle_No__c}</div>
+                                        </td>
+                                        <td data-label="Km covered" scope="col">
+                                        <div class="slds-cell-wrap">{bike.KM_Covered__c}</div>
+                                        </td>
+                                    </tr>
+                            </template>
+
+                           
+                        </template>
+                    </tbody>                
+                </table>              
+            </template>
+            <template if:true={error}>
+                        {error}
+            </template>
+                 
+
+           
+        </div>
+    </lightning-card>
+</template>

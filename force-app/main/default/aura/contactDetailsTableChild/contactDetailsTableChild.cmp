@@ -1,0 +1,26 @@
+<aura:component  >
+   <aura:attribute name="contactlst" type="Sobject"/>
+	<tr class="slds-hint-parent">
+                      <td scope="row">
+                          <div class="slds-truncate" title="id">{!v.contactlst.Id}</div>
+                      </td>
+        				<td >
+                          <div class="slds-truncate" title="FirstName">{!v.contactlst.FirstName}</div>
+                      </td>
+                      <td>
+                          <div class="slds-truncate" title="LastName">{!v.contactlst.LastName}</div>
+                      </td>
+                      <td>
+                          <div class="slds-truncate" title="Email">{!v.contactlst.Email}</div>
+                      </td>
+                       <td>
+                          <div class="slds-truncate" title="Phone">{!v.contactlst.Phone}</div>
+                      </td>
+                      <td>
+                          <div class="slds-truncate">
+   			 <lightning:button class="slds-button slds-button_brand" label="Details" title="show details" onclick="{!c.showDetails}"/>
+                          </div>
+                     </td>
+                  </tr>        
+
+</aura:component>

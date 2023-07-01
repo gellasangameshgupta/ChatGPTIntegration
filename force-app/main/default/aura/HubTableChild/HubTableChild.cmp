@@ -1,0 +1,27 @@
+<aura:component>
+
+    <aura:attribute name="hubslst" type="Hub__c"/>
+	<tr class="slds-hint-parent">
+                       
+                     
+        				<td scope="row">
+                          <div class="slds-truncate" title="Name"><a onclick="{!c.navToRecord}">{!v.hubslst.Name}</a></div>
+                      </td>
+                      <td>
+                          <div class="slds-truncate" title="Active">{!v.hubslst.Active__c}</div>
+                      </td>
+                      <td>
+                        <div class="slds-truncate" title="Location">{!v.hubslst.Location__Latitude__s},
+                       
+                            {!v.hubslst.Location__Longitude__s}
+                
+                        </div>
+                    </td>
+                       <td>
+                        <div class="slds-truncate" title="Rating" >{!v.hubslst.Rating__c}</div>
+                      </td>
+                      
+                  </tr>        
+
+
+</aura:component>

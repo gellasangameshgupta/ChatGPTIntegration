@@ -1,0 +1,29 @@
+<apex:page controller="merchandiseRelatedInvoiceVF"  >
+    <apex:pageBlock >
+        <apex:repeat value="{!memList}" var="M">
+           
+                   
+                <table>
+            
+                    <tr>
+                        <th>Merchandise Name--></th>
+                        <th><apex:outputText value="{!M.Name}"/></th>
+                    </tr>
+                    
+               </table> 
+            
+            
+         <apex:repeat value="{!M.Line_Items__r}" var="cont">
+                    <li>
+                        Invoice---><ol><apex:outputText value="{!cont.Invoice__r.Name}"/></ol>
+                        
+                    
+                        
+                        Invoice Number---><ol><apex:outputText value="{!cont.Invoice__r.Name__c}"/></ol>
+                    </li> 
+              
+            </apex:repeat>   
+        </apex:repeat>
+        
+    </apex:pageBlock>
+</apex:page>

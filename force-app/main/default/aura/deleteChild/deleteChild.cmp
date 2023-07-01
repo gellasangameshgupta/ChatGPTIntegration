@@ -1,0 +1,16 @@
+<aura:component>
+
+<aura:attribute name="ContactData" type="sObject" />
+
+<tr class="slds-hint-parent">
+    <td data-label="Record Name">
+        <div class="slds-truncate" title="id">{!v.ContactData.Name}</div>
+    </td>
+    <td data-label="Record Id">
+        <div class="slds-truncate" title="Name">{!v.ContactData.Id}</div>
+    </td>
+
+    <lightning:button variant="base" label="Delete" title="Delete" onclick="{!c.handleClick}"/>
+</tr>
+
+</aura:component>
