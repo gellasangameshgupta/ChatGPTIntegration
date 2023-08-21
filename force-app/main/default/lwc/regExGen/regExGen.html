@@ -28,7 +28,7 @@
             </div>
         </header>
         <div class="scrollable-content slds-card__body slds-card__body_inner">
-            <div class="leftbox">
+            <div>
                 <lightning-card title="Previous Prompts are:">
                     <ul>
                         <template for:each={previousSearches} for:item="term">
@@ -37,16 +37,12 @@
                     </ul>
                 </lightning-card>
             </div>
-            <div class="rightbox">
-                <lightning-card title="Regex is:">
-                    <template if:true={responseData}>
-                        <lightning-formatted-rich-text disable-linkify value={responseData}></lightning-formatted-rich-text>
-                    </template>
-                    <template if:true={showSpinner}>
-                        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
-                    </template>	
-                </lightning-card>
-            </div>	
+			<template if:true={responseData}>
+				<lightning-formatted-rich-text disable-linkify value={responseData}></lightning-formatted-rich-text>
+			</template>
+			<template if:true={showSpinner}>
+				<lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+			</template>		
 		</div>
     </div>
     <footer class="slds-card__footer">

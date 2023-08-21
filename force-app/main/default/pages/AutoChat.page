@@ -1,13 +1,9 @@
 <apex:page >
-  <h1>Let’s start chatting...</h1>
-  <br />
-  Click the button to start a chat.
-  <br />
-  <!--Embedded Service Snippet-->
- 
-  
-
-<style type='text/css'>
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page
+  <!-- End Default Content REMOVE THIS -->
+  <style type='text/css'>
     .embeddedServiceHelpButton .helpButton .uiButton {
         background-color: #005290;
         font-family: "Arial", sans-serif;
@@ -18,7 +14,6 @@
 </style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-
 <script type='text/javascript'>
     var initESW = function(gslbBaseURL) {
         embedded_svc.settings.displayHelpButton = true; //Or false
@@ -57,23 +52,24 @@
                 isOfflineSupportEnabled: false
             }
         );
-    };
-
-    function autoClickChat() {
-        var chatElem = $('a[data-embedded-help-button="online"]');
-        if (chatElem.length > 0) {
-            chatElem[0].click();
-        } else {
-            console.log("Chat element not found.");
+        
+        // Find the chat element and click it
+        function openChat() {
+            var chatBtn = $('.embeddedServiceHelpButton').find('.helpButton')[0];
+            if (chatBtn) {
+                chatBtn.click();
+            } else {
+                setTimeout(openChat, 100);
+            }
         }
-    }
+        openChat();
+    };
 
     if (!window.embedded_svc) {
         var s = document.createElement('script');
         s.setAttribute('src', 'https://absyz-c9-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
         s.onload = function() {
             initESW(null);
-            autoClickChat(); // Call the function to auto-click the chat element
         };
         document.body.appendChild(s);
     } else {

@@ -1,0 +1,41 @@
+.container {
+  height: 300px;
+  width: 100%;
+  margin: auto;
+}
+
+.carousel {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide-content {
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+
+.slide:not(.current-slide) {
+  display: none;
+}
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  margin-right: 10px;
+}

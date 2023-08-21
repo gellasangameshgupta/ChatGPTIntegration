@@ -1,5 +1,5 @@
 public class Assign9 {
-    public void carGarage(integer wheels,integer figures,integer carBody)
+    public static void carGarage(integer wheels,integer figures,integer carBody)
     {
         Integer wheelsRequired=wheels/4;
         integer figuresRequired=figures/2;
@@ -8,5 +8,6 @@ public class Assign9 {
             system.debug(wheelsRequired+' car prepared');
         }
     }
+     
    
 }

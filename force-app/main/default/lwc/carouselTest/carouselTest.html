@@ -1,0 +1,37 @@
+<template>
+  <!-- <lightning-card>
+    <div class="carousel">
+      <div class="slds-box slds-theme_error slds-theme_alert-texture">
+        Info
+      </div>
+      <div class="slide active">
+        <a href="https://www.example.com">Example 1</a>
+      </div>
+      <div class="slide">
+        <a href="https://www.example2.com">Example 2</a>
+      </div>
+      <div class="slide">
+        <a href="https://www.example3.com">Example 3</a>
+      </div>
+    </div> -->
+    <!-- <div class="controls">
+      <button class="prev" onclick={handlePrev}></button>
+      <button class="next" onclick={handleNext}></button>
+    </div> -->
+  <!-- </lightning-card> -->
+
+
+
+    <div class="carousel">
+      <div class="slides slideContainerClass">
+        <template for:each={slides} for:item="slide" for:index="index">
+          <div key={slides.key} class={slideClass}>
+            <h1>{slide}</h1>
+          </div>
+        </template>
+      </div>
+    </div>
+  
+
+  
+</template>

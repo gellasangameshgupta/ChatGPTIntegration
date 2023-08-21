@@ -1,0 +1,44 @@
+<template>
+  <div class="container">
+    <div class="carousel">
+      <div class="slide current-slide accountStyle" data-slide="account">
+        <div class="slide-content">
+          <template for:each={accountRecords} for:item="account">
+            <div key={account.Id}>
+              <img src={account.Logo__c} alt={account.Name} />
+              <h2>{account.Name}</h2>
+              <p>{account.Description}</p>
+            </div>
+          </template>
+        </div>
+      </div>
+      <div class="slide" data-slide="contact">
+        <div class="slide-content">
+          <template for:each={contactRecords} for:item="contact">
+            <div key={contact.Id}>
+              <img src={contact.SmallPhotoUrl} alt={contact.Name} />
+              <h2>{contact.Name}</h2>
+              <p>{contact.Title}</p>
+            </div>
+          </template>
+        </div>
+      </div>
+      <div class="slide" data-slide="opportunity">
+        <div class="slide-content">
+          <template for:each={opportunityRecords} for:item="opportunity">
+            <div key={opportunity.Id}>
+              <img src={opportunity.Thumbnail__c} alt={opportunity.Name} />
+              <h2>{opportunity.Name}</h2>
+              <p>{opportunity.StageName}</p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button class="button" data-target="account">Account</button>
+      <button class="button" data-target="contact">Contact</button>
+      <button class="button" data-target="opportunity">Opportunity</button>
+    </div>
+  </div>
+</template>

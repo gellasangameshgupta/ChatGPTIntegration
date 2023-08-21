@@ -1,5 +1,11 @@
 <aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
 
-<lightning:button iconName ="utility:download" onclick="{!c.downloadCSV}" label = "Export Data"/>
+<lightning:button iconName ="utility:download" onclick="{!c.downloadCSV}" label = "Export Data"/> 
+<lightning:card title = "Button">
+<div class="slds-grid slds-grid_align-center">
+    <lightning:button label="Button 1" class="slds-m-right_large"/>
+    <lightning:button label="Button 2"/>
+</div>
+</lightning:card>
 
 </aura:component>
